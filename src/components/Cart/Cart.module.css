@@ -94,7 +94,7 @@
   width: 100%;
 }
 
-.btn .paypal {
+.btn button {
   width: 100%;
   padding: 2rem;
   display: inline-block;
