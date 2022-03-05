@@ -2,12 +2,11 @@ import React, { useContext, useEffect, useRef } from 'react';
 import { GrClose } from 'react-icons/gr';
 import { CartItem } from '..';
 import { storeContext } from '../../context';
-import PayPalButton from '../PayPalButton';
 
 import styles from './Cart.module.css';
 
 const Cart = () => {
-  const { handleCartBar, cartBarOpen, cart, subTotal, clearCart } =
+  const { handleCartBar, cartBarOpen, cart, subTotal } =
     useContext(storeContext);
 
   const cartRef = useRef();
@@ -68,8 +67,7 @@ const Cart = () => {
                 <div className={styles.productPrice}>$ {subTotal} USD</div>
               </div>
               <div className={styles.btn}>
-                <PayPalButton total={subTotal} clearCart={clearCart} />
-                {/* <button>continue to checkout</button> */}
+                <button>continue to checkout</button>
               </div>
             </div>
           </>
