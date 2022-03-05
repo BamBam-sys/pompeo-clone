@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import styles from './Navbar.module.css';
@@ -7,7 +7,7 @@ import { GrClose, GrMenu } from 'react-icons/gr';
 import { storeContext } from '../../context';
 
 const Navbar = () => {
-  const { mobileNavOpen, handleMobileNav, cartBarOpen, handleCartBar } =
+  const { mobileNavOpen, handleMobileNav, handleCartBar } =
     useContext(storeContext);
 
   const navRef = useRef();
