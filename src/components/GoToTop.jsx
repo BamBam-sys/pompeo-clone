@@ -11,6 +11,8 @@ export default function GoToTop() {
   useEffect(() => {
     mobileNavOpen && handleMobileNav();
     onTop();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [routePath]);
 
   return null;

@@ -10,7 +10,11 @@ const CartItem = ({ product: { id, img, title, price, count } }) => {
 
   useEffect(() => setQty(count), [count]);
 
-  useEffect(() => updateCart(parseInt(id), parseInt(qty)), [qty]);
+  useEffect(() => {
+    updateCart(parseInt(id), parseInt(qty));
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [qty]);
 
   const handleChange = (event) => {
     const val = event.target.value;

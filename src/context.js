@@ -80,6 +80,12 @@ export const ProductProvider = (props) => {
     setState((prevState) => ({ ...prevState, cart: tempCart }));
   };
 
+  const clearCart = () => {
+    state.cart.forEach((item) => {
+      removeCartItem(item.id);
+    });
+  };
+
   useEffect(() => {
     const subTotal = state.cart.reduce(
       (accumulator, currenvalue) => accumulator + currenvalue.total,
@@ -99,6 +105,7 @@ export const ProductProvider = (props) => {
         find,
         updateCart,
         removeCartItem,
+        clearCart,
       }}
     >
       {props.children}
