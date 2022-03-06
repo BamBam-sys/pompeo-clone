@@ -29,3 +29,25 @@
   text-align: center;
   margin-top: 5rem;
 }
+
+/* media queries */
+
+/**************************/
+/* BELOW 769px */
+/**************************/
+
+@media (max-width: 48em) {
+  .storeProducts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/**************************/
+/* BELOW 544px */
+/**************************/
+
+@media (max-width: 34em) {
+  .storeProducts {
+    grid-template-columns: 1fr;
+  }
+}
