@@ -13,7 +13,7 @@ const Crew = () => {
     <div className={styles.crew}>
       <div className="container">
         <SubHeading text={'our crew'} />
-        <h2>talented artist</h2>
+        <h2>talented artists</h2>
         <div className={styles.artists}>
           <div className={styles.artist}>
             <img className={styles.artistImg} src={Maria} alt="Maira Monroy" />
