@@ -64,7 +64,9 @@ const Cart = () => {
             <div className={styles.cartTotal}>
               <div className={styles.subTotal}>
                 <p>Subtotal</p>
-                <div className={styles.productPrice}>$ {subTotal} USD</div>
+                <div className={styles.productPrice}>
+                  $ {subTotal ? subTotal : 0.0} USD
+                </div>
               </div>
               <div className={styles.btn}>
                 <button>continue to checkout</button>

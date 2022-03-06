@@ -7,7 +7,7 @@ import { storeContext } from '../../context';
 import styles from './Product.module.css';
 
 const Product = () => {
-  const [qty, setQty] = useState(1);
+  const [qty, setQty] = useState('');
   // const { qty, setQty } = useContext(storeContext);
 
   const { id } = useParams();
@@ -19,7 +19,7 @@ const Product = () => {
   const handleChange = (event) => {
     const val = event.target.value;
 
-    if (val >= 1) setQty(val);
+    setQty(val);
   };
 
   const productProps = {
@@ -66,25 +66,28 @@ const Product = () => {
                 </span>
               </span>
             </div>
-            <div className={styles.productP}>
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
+                addToCart(parseInt(id), parseInt(qty));
+                setQty('');
+              }}
+              className={styles.productP}
+            >
               <label htmlFor="quantity">Quantity</label>
               <input
                 type="number"
                 name="quantity"
                 id="quantity"
+                min={1}
+                required
                 value={qty}
                 onChange={handleChange}
               />
-            </div>
-            <button
-              className={styles.btn}
-              onClick={() => {
-                addToCart(parseInt(id), parseInt(qty));
-                setQty(1);
-              }}
-            >
-              add to cart
-            </button>
+              <button type="submit" className={styles.btn}>
+                add to cart
+              </button>
+            </form>
           </div>
         </div>
       </section>

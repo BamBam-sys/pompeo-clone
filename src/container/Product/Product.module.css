@@ -102,6 +102,7 @@ span.socialIcon {
 }
 
 .btn {
+  margin-top: 2rem;
   padding: 2rem 4rem;
   display: inline-block;
   border: none;
@@ -109,7 +110,7 @@ span.socialIcon {
   font-size: 1.2rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  background-color: var(--btn-color);
+  background: var(--btn-color);
   cursor: pointer;
   transition: all 400ms ease;
 }

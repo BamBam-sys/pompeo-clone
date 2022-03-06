@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 
 import styles from './CartItem.module.css';
 
@@ -8,17 +8,24 @@ const CartItem = ({ product: { id, img, title, price, count } }) => {
   const { updateCart, removeCartItem } = useContext(storeContext);
   const [qty, setQty] = useState(count);
 
+  console.log('qty', qty);
+  console.log('count', count);
+
+  const formRef = useRef();
+
   useEffect(() => setQty(count), [count]);
 
-  useEffect(() => {
-    updateCart(parseInt(id), parseInt(qty));
+  useEffect(() => formRef.current.requestSubmit(), [qty]);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [qty]);
+  // useEffect(() => {
+  //   updateCart(parseInt(id), parseInt(qty));
+
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [qty]);
 
   const handleChange = (event) => {
     const val = event.target.value;
-    if (val >= 1) setQty(val);
+    setQty(val);
   };
 
   return (
@@ -30,13 +37,23 @@ const CartItem = ({ product: { id, img, title, price, count } }) => {
           <div className={styles.productPrice}>$ {price} USD</div>
           <p onClick={() => removeCartItem(parseInt(id))}>remove</p>
         </div>
-        <input
-          type="number"
-          name="quantity"
-          id="quantity"
-          value={qty}
-          onChange={handleChange}
-        />
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            updateCart(parseInt(id), parseInt(qty));
+          }}
+          ref={formRef}
+        >
+          <input
+            type="number"
+            name="quantity"
+            id="quantity"
+            min={1}
+            required
+            value={qty}
+            onChange={handleChange}
+          />
+        </form>
       </div>
     </div>
   );

@@ -13,6 +13,8 @@ export const ProductProvider = (props) => {
     subTotal: 0,
   });
 
+  console.log(state.cart);
+
   function handleMobileNav() {
     setState((prevState) => ({
       ...prevState,
@@ -62,6 +64,7 @@ export const ProductProvider = (props) => {
   };
 
   const updateCart = (id, qty) => {
+    console.log('update');
     const tempCart = state.cart.map((item) => {
       return item.id === id
         ? { ...item, count: qty, total: qty * item.price }
