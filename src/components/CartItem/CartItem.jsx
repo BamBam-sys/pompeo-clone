@@ -8,9 +8,6 @@ const CartItem = ({ product: { id, img, title, price, count } }) => {
   const { updateCart, removeCartItem } = useContext(storeContext);
   const [qty, setQty] = useState(count);
 
-  console.log('qty', qty);
-  console.log('count', count);
-
   const formRef = useRef();
 
   useEffect(() => setQty(count), [count]);
